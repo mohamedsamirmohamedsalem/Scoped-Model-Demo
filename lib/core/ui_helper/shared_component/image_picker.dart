@@ -29,7 +29,8 @@ class _ImagePickerSectionState extends State<ImagePickerSection> {
   }
 
   Future<void> _captureImage() async {
-    final XFile? capturedImage = await _picker.pickImage(source: ImageSource.camera);
+    final XFile? capturedImage =
+        await _picker.pickImage(source: ImageSource.camera);
     if (capturedImage != null) {
       setState(() {
         _imageFiles = [File(capturedImage.path)];
@@ -56,7 +57,8 @@ class _ImagePickerSectionState extends State<ImagePickerSection> {
               radius: 60,
               backgroundImage: _imageFiles != null && _imageFiles!.isNotEmpty
                   ? FileImage(_imageFiles![0]) // Use FileImage with File
-                  : AssetImage(ImageConstant.addImageBackground) as ImageProvider<Object>, // Cast as ImageProvider<Object>
+                  : AssetImage(ImageConstant.addImageBackground)
+                      as ImageProvider<Object>, // Cast as ImageProvider<Object>
             ),
             Positioned(
               bottom: 0,

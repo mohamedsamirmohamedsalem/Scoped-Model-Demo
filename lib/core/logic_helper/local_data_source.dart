@@ -17,8 +17,6 @@ abstract class LocalDataSource {
   Future<bool?> getLocationSetting();
   Future<Unit> setCameraSetting(bool isEnabled);
   Future<bool?> getCameraSetting();
-  Future<int> setNotificationCount(int notificationCount);
-  Future<int> getNotificationCount();
 }
 
 const CACHED_USER_LOGIN_RESPONSE = "CACHED_USER_LOGIN_RESPONSE";
@@ -26,7 +24,6 @@ const REMEMBER_USER = "REMEMBER_USER";
 const LANGUAGE_SETTINGS = "LANGUAGE_SETTINGS";
 const LOCATION_SETTINGS = "LOCATION_SETTINGS";
 const CAMERA_SETTINGS = "CAMERA_SETTINGS";
-const NOTIFICATION_COUNT = "NOTIFICATION_COUNT";
 
 class LocalDataSourceImpl implements LocalDataSource {
   final SharedPreferences sharedPreferences;
@@ -82,12 +79,6 @@ class LocalDataSourceImpl implements LocalDataSource {
   }
 
   @override
-  Future<int> setNotificationCount(int notificationCount) async {
-    await sharedPreferences.setInt(NOTIFICATION_COUNT, notificationCount);
-    return notificationCount;
-  }
-
-  @override
   Future<bool?> getRememberUser() async {
     return sharedPreferences.getBool(REMEMBER_USER);
   }
@@ -105,10 +96,5 @@ class LocalDataSourceImpl implements LocalDataSource {
   @override
   Future<bool?> getCameraSetting() async {
     return sharedPreferences.getBool(CAMERA_SETTINGS);
-  }
-
-  @override
-  Future<int> getNotificationCount() async {
-    return sharedPreferences.getInt(NOTIFICATION_COUNT) ?? 0;
   }
 }

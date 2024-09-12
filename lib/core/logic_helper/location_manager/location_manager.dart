@@ -23,7 +23,6 @@ class LocationManager {
             "Location service is not activated, do you want to activate it through settings"
                 .tr(), onPressed: () async {
           Navigator.pop(context);
-          print("backkkk");
           await Geolocator.openLocationSettings();
         });
       }
@@ -71,7 +70,6 @@ class LocationManager {
       final bool result = await platform.invokeMethod('isMockLocation');
       return result;
     } on PlatformException catch (e) {
-      print("Failed to check mock location: '${e.message}'.");
       return false;
     }
   }

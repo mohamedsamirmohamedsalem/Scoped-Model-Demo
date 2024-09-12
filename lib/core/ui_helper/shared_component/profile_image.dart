@@ -7,7 +7,7 @@ import '../../constants/image_constant.dart';
 class ProfileImage extends StatefulWidget {
   final String? photoUrl;
 
-  const ProfileImage({Key? key, this.photoUrl}) : super(key: key);
+  const ProfileImage({super.key, this.photoUrl});
 
   @override
   State<ProfileImage> createState() => _ProfileImageState();

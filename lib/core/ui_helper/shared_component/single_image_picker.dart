@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:scoped_model_demo/core/ui_helper/shared_component/profile_image.dart';
 
 import '../../../scenes/authentication/sign_in/model/login_model.dart';
 import '../../constants/endpoints.dart';
@@ -12,8 +11,8 @@ class SingleImagePickerSection extends StatefulWidget {
   final Function(File) onImagePicked; // Callback for the selected image
   final LoginModel loginModel;
 
-  SingleImagePickerSection(
-      {required this.onImagePicked, required this.loginModel});
+  const SingleImagePickerSection(
+      {super.key, required this.onImagePicked, required this.loginModel});
 
   @override
   _SingleImagePickerSectionState createState() =>

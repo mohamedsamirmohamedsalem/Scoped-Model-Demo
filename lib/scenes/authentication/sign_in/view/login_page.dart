@@ -60,7 +60,6 @@ class _loginPageState extends State<loginPage> {
                       buildForgetPasswordView(),
                       buildSignINButtonView(),
                       const SizedBox(height: 20),
-                      buildSocialMediaView(),
                       const SizedBox(height: 20),
                     ],
                   ),
@@ -132,29 +131,6 @@ class _loginPageState extends State<loginPage> {
             ),
             Container(height: 1, width: 100, color: Colors.black45),
           ],
-        ),
-      ],
-    );
-  }
-
-  Widget buildSocialMediaView() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        CustomImageButton(
-          image: ImageConstant.facebook,
-          backgroundColor: appTheme.facebookColorBlue,
-          onPressed: () {},
-        ),
-        CustomImageButton(
-          image: ImageConstant.google,
-          backgroundColor: Colors.white,
-          onPressed: () {},
-        ),
-        CustomImageButton(
-          image: ImageConstant.apple,
-          backgroundColor: Colors.white,
-          onPressed: () {},
         ),
       ],
     );
