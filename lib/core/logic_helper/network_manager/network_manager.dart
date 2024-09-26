@@ -6,6 +6,7 @@ import 'package:dio/dio.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:scoped_model_demo/core/constants/app-constant.dart';
 import 'package:scoped_model_demo/core/logic_helper/import_all.dart';
+import 'package:scoped_model_demo/core/logic_helper/localization_manager/language_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../local_data_source.dart';
@@ -71,13 +72,16 @@ class NetworkManager {
       // Get language and token
       final cachedUser = await localDataSource.getCachedUser();
       final token = cachedUser.token;
-      final language = await localDataSource.getLanguageSetting();
+      final language = await localDataSource.getLanguageSetting() ?? true;
+      final apiLanguageCode = language
+          ? LanguageManager.apiEnglishCode
+          : LanguageManager.apiArabicCode;
 
       Options options = Options(
         headers: {
           "Content-Type": "application/json",
           "Authorization": "Bearer $token",
-          "Accept-Language": language ?? "en",
+          "Accept-Language": apiLanguageCode,
         },
       );
 
